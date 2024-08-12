@@ -1,0 +1,20 @@
+{
+  "title": {
+    "/home": "Home",
+    "/": "Jaegar Resto",
+    "/dashboard": "Dashboard",
+    "/settings": "Settings"
+  },
+  "seenDate": {
+    "/home": true,
+    "/": true,
+    "/dashboard": true,
+    "/settings": false
+  },
+  "seenSearch": {
+    "/home": false,
+    "/": true,
+    "/dashboard": false,
+    "/settings": true
+  }
+}

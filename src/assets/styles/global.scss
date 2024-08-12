@@ -1,0 +1,593 @@
+@import url(https://fonts.googleapis.com/css?family=Barlow:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+@import "../styles/variables.scss";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Barlow", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+span {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.center {
+  text-align: center;
+}
+
+html {
+  font-size: 16px;
+  @media (max-width: 1024px) {
+    font-size: 14px;
+  }
+  @media (max-width: 780px) {
+    font-size: 12px;
+  }
+  @media (max-width: 540px) {
+    font-size: 10px;
+  }
+}
+
+i {
+  color: inherit;
+}
+
+hr {
+  display: block;
+  height: 2px;
+  margin-top: -1px !important;
+  border: 1px solid $gray;
+  z-index: 5;
+}
+
+.text-lg {
+  font-weight: 600;
+  font-size: 1.75rem !important;
+}
+.text-md {
+  display: block;
+  font-weight: 600;
+  font-size: 1.4rem !important;
+}
+.text-small {
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.search-input {
+  border-radius: 8px;
+  height: fit-content;
+  background-color: #2d303e;
+  display: flex;
+  padding: 0.875rem 1rem;
+  gap: 1rem;
+  align-items: center;
+  border: 1px solid #393c49;
+  input {
+    background-color: inherit;
+    outline: none;
+    border: none;
+  }
+  color: white;
+}
+.select {
+  position: relative;
+  width: 9vw;
+  border: 1px solid $gray;
+  border-radius: 8px;
+  background-color: $blackDark;
+  padding: 0.7rem 1.2rem 0.7rem 1.2rem;
+  display: flex;
+  gap: 0.5rem;
+
+  @media (max-width: 1172px) {
+    width: 10vw;
+  }
+  @media (max-width: 940px) {
+    width: 12vw;
+  }
+  @media (max-width: 720px) {
+    width: 14vw;
+  }
+  @media (max-width: 640px) {
+    width: 16vw;
+  }
+  @media (max-width: 420px) {
+    width: 18vw;
+  }
+  @media (max-width: 360px) {
+    width: 20vw;
+  }
+
+  & .select-icon {
+    z-index: 1;
+  }
+
+  & > select {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 1.2rem;
+    width: calc(100% - 2.4rem);
+    background-color: inherit;
+    color: inherit;
+    outline: none;
+    appearance: none;
+    text-align: right;
+  }
+}
+
+.food-card--sm {
+  width: calc(25vh + 4rem);
+  position: relative;
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.1rem;
+  & > *:not(.food-card--sm-back) {
+    z-index: 1;
+  }
+  & img {
+    display: block;
+    aspect-ratio: 1 / 1 !important;
+    border-radius: 50% !important;
+    z-index: 1;
+    object-fit: cover;
+    object-position: center;
+  }
+  & .food-card--sm-back {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 80%;
+    width: 100%;
+    border-radius: 8px;
+    background-color: $blackDark;
+    z-index: 0;
+  }
+  & .food-name {
+    margin-top: 1.2rem;
+    font-weight: 500;
+  }
+  & .food-price {
+    margin-top: 0.6rem;
+    font-weight: 400;
+  }
+  & .food-available {
+    margin-top: 0.6rem;
+
+    color: #3b5162;
+  }
+}
+
+.food-card--lg {
+  border: 1px solid $gray;
+  border-radius: 10px;
+  .card-content {
+    width: 100%;
+    height: 80%;
+    padding: 2rem 3rem 1.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    .food-card__image {
+      border-radius: 50%;
+      height: 11rem;
+      width: 11rem;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: center;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    .food-card__title {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+    .food-card__num-infos {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: #abbbc2;
+      font-weight: 400;
+    }
+  }
+  .card-edit {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 100%;
+    height: 20%;
+    padding: 0.8rem 0;
+    background-color: $orangeLow;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: $orange;
+    .card-edit__text {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition-duration: 500ms;
+      font-weight: 600;
+      &:hover {
+        transform: translateY(-0.2rem);
+      }
+    }
+  }
+}
+
+button {
+  border-radius: 8px;
+  padding: 0.3rem 0.8rem !important;
+  font-size: 0.9rem !important;
+  transition-duration: 0.2s;
+}
+
+.btn {
+  border: 2px solid $gray;
+  background-color: inherit;
+  color: $orange;
+  &:hover {
+    border: none;
+    background-color: rgb(0, 0, 0);
+  }
+}
+
+.btn-large {
+  border-radius: 8px;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  padding: 1rem 0 !important;
+  background-color: $orange;
+  box-shadow: 0px 8px 24px 0px #ea7c6966;
+  text-align: center;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 0 10px 0 gray;
+  }
+}
+
+.btn-large--inverted {
+  @extend .btn-large;
+  border: 2px solid $orange;
+  color: $orange;
+  background-color: inherit;
+  box-shadow: none;
+}
+
+.btn--active {
+  border: none;
+  background-color: $orange;
+  color: white;
+}
+
+.tick {
+  display: none !important;
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  border-radius: 50%;
+  aspect-ratio: 1 / 1 !important;
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: $orange;
+  color: black;
+  font-size: 0.6rem;
+}
+
+.btn-secondary {
+  position: relative;
+  border: 0.47px solid #393c49;
+  border-radius: 8px;
+  width: 7.5rem;
+  padding: 0.4rem 1rem;
+  background-color: inherit;
+  color: #abbbc2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+
+  &:hover {
+    border: 0.47px solid #abbbc2;
+    background-color: #252836;
+  }
+}
+
+.btn-secondary--active {
+  position: relative;
+  border: 0.47px solid #abbbc2;
+  border-radius: 8px;
+  width: 7.5rem;
+  padding: 0.4rem 1rem;
+  background-color: #252836;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 1rem;
+  font-weight: 400;
+
+  cursor: pointer;
+
+  & > .tick {
+    display: block !important;
+  }
+}
+
+.input {
+  border-radius: 8px;
+  border: 1px solid $gray;
+  width: 20%;
+  height: fit-content;
+  aspect-ratio: 1 / 1;
+  padding: 0.5rem;
+  background-color: $grayDark;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.input-note {
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid $gray;
+  width: 100%;
+  height: 100% !important;
+  padding: 1rem;
+  background-color: $grayDark;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+// scroll styling
+::-webkit-scrollbar {
+  width: 4.5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $orange;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #f7593e;
+}
+
+.custom-select .ant-select {
+  color: white !important;
+}
+
+// Antd design customizing
+.custom-select .ant-select-selector {
+  position: relative;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 1.5rem !important;
+  background-color: $blackDark !important;
+  color: white !important;
+  box-shadow: none !important;
+  border: 1px solid $gray !important;
+}
+.custom-select * {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  color: white !important;
+}
+
+// ant select tag arrow icon customizing
+.custom-select .ant-select-arrow {
+  position: absolute !important;
+  top: 50% !important;
+  right: 10% !important;
+  transform: translate(-70%, 40%) !important;
+}
+
+// ant select option customizing
+.ant-select-item-option-content {
+  color: white;
+}
+
+// ant selected option
+.ant-select-item-option-selected {
+  background-color: $blackMedium !important;
+}
+
+// antd design tabs btn styling
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: $orange !important;
+}
+
+// ant tabs link bar styles
+.ant-tabs .ant-tabs-ink-bar {
+  background-color: $orange;
+  transform: translate(-64%) scale(0.7) !important;
+  bottom: -2px !important;
+  height: 4px !important;
+  z-index: 10;
+}
+
+// Disabling default border in ant tabs bottom
+.ant-tabs-nav-wrap {
+  border: none !important;
+}
+
+// Disabling ant tabs default margin
+.ant-tabs-nav {
+  margin: 0 !important;
+}
+
+.ant-tabs .ant-tabs-tab {
+  color: white;
+}
+
+.ant-tabs .ant-tabs-tab:hover {
+  color: $orange !important;
+}
+
+.ant-tabs-content-holder {
+  border: none !important;
+  &::before,
+  &::after {
+    display: none !important;
+  }
+}
+
+.ant-tabs {
+  border: none !important;
+}
+
+// spinner animation stylings
+
+.lds-roller,
+.lds-roller div,
+.lds-roller div:after {
+  box-sizing: border-box;
+}
+.lds-roller {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
+}
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7.2px;
+  height: 7.2px;
+  border-radius: 50%;
+  background: currentColor;
+  margin: -3.6px 0 0 -3.6px;
+}
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+  top: 62.62742px;
+  left: 62.62742px;
+}
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+  top: 67.71281px;
+  left: 56px;
+}
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+  top: 70.90963px;
+  left: 48.28221px;
+}
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+  top: 70.90963px;
+  left: 31.71779px;
+}
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+  top: 67.71281px;
+  left: 24px;
+}
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+  top: 62.62742px;
+  left: 17.37258px;
+}
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12.28719px;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// ant image
+.ant-image,
+.ant-image-mask {
+  border-radius: 50%;
+}
+
+// Apex charts
+.apexcharts-legend-series {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
